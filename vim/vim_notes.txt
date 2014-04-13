@@ -1,0 +1,171 @@
+
+Startup
+=======
+
+view {file}  - open {file} in read-only mode (s.a. vim -R)
+gvim {file}  - start the GUI and edit {file} (s.a. vim -g)
+gview {file} - start the GUI and open {file} in read-only mode (s.a. vim -Rg)
+vimdiff      - start in diff mode (s.a. vim -d)
+gvimdiff     - start GUI in diff mode (s.a. vim -dg)
+
+other options
+-------------
+
++{num}  - set the cursor on the first character of line {num}
++/{pattern} - set the cursor on the first character of the line containing {pattern}
+-r      - recovery mode
+-R      - read-only mode
+-b      - binary mode
+-n      - no swap file
+-d      - diff mode
+-o{num} - open {num} windows, split horizontally; if {num} is not listed open
+          one window for every provided file
+-O{num} - open {num} windows, split vertically
+-p{num} - open {num} tab pages
+-x      - encrypt the file on read/write
+
+
+
+Basic Editing
+=============
+
+a  - Append at cursor
+A  - Append to end of line (s.a. $a)
+i  - Insert at cursor
+I  - Insert at beginning of line (s.a. ^i)
+s  - Substitute at cursor (s.a. xi)
+S  - Substitute line (s.a. ^C)
+o  - Open a new line below the current line (s.a. A<CR>)
+O  - Open a new line above the current line (s.a. kA<CR> or ko)
+x  - Delete character under cursor
+X  - Delete character before cursor (s.a. hx) 
+
+Motions
+=======
+
+G  - to end of file
+
+Operators (Operator + Motion = Action)
+======================================
+
+d{motion} - Delete
+c{motion} - Change
+y{motion} - Yank
+
+note: operator + operator = action applied to current line
+  (e.g. dd - delete current line)
+
+Searching
+=========
+
+f{char} - Find next instance of {char} in current line
+  ; - repeat / , - repeat in opposite direction
+* / # - search forward/backwards for the word under the cursor
+
+Repeating
+=========
+
+.  - Repeat last change
+@: - Repeat last Ex command
+&  - Repeat last :substitute
+
+Text Objects (Operator + Text Object = Action)
+==============================================
+
+a[keyword] - "a [keyword]"
+             select text specified by [keyword] including leading and trailing
+             delimiters (e.g. whitespace, '[' and ']', '(' and ')', etc.)
+i[keyword] - "inner [keyword]"
+             select text specified by [keyword] excluding delimters
+
+note: if not currently in a valid block vim will search the current line for
+      the next instance of the block
+
+keywords
+--------
+w, W    - word or WORD
+s       - sentance
+p       - paragraph
+[, ]    - [] block
+b, (, ) - () block
+<, >    - <> block
+t       - tag block (e.g. <aaa>inner text</aaa>)
+B, {, } - a {} block (e.g. { int i; for (i=0; i<2; ) }
+"       - double quote string (e.g. "this is a 'double-quote' string")
+'       - single quote sting
+`       - back-quote string
+
+
+Window Management
+=================
+
+<C-w>s - split the current window horizontally, reusing the current buffer
+            in the new window
+<C-w>v - split the current window vertically, reusing the current buffer in
+            the new window
+:sp[lit] {file} - split the current window hoizontatally, loading {file} into
+                  the new window
+:vsp[lit] {file} - split the current window veritcally, loading {file} into
+                   the new window
+
+<C-w>w - cycle between open windows
+<C-w>h - focus the window on the left
+<C-w>l - focus the window on the right
+<C-w>j - focus the window below
+<C-w>k - focus the window above
+
+note: <C-w><C-w> is the same as <C-w>w, etc
+
+<C-w>c - close the active window  (s.a. :cl[ose])
+<C-w>o - keep only the active window, closing all others  (s.a. :on[ly])
+
+<C-w>= - equalize width and height of all windows
+<C-w>_ - maximize height of the active window
+<C-w>| - maximize width of the active window
+[N]<C-w>_ - set the active window height to [N] rows
+[N]>C-w>| - set the active window width to [N] rows
+
+
+Tab Managment
+=============
+
+:tabe[dit] {filename} - open {filename} in a new tab
+<C-w>T - move the current window into its own tab
+:tabc[lose] - close the current tab page and all of its windows
+:tabo[nly] - keep the active tab page, closing all others
+
+:tabn[ext] {N} - switch to tab page number {N} (s.a. {N}gt)
+:tabn[ext]     - switch to next tab page (goto tab) (s.a. gt)
+:tabp[revious] - switch to previous tabl page (s.a. gT)
+
+
+Plugins
+=======
+
+* the 'runtimepath' option contains a set of directories vim will search
+  for the 'plugin' subdirectory.
+
+default runtimepath:
+  ~/.vim
+  /var/lib/vim/addons
+  /usr/share/vim/vimfiles
+  /usr/share/vim/vim73
+  /usr/share/vim/vimfiles/after
+  /var/lib/vim/addons
+  ~/.vim/after
+
+* all files ending in .vim will be sourced in alphabetical order per
+  directory.
+
+:runtime! plugin/**/*.vim - load plugins
+
+
+Etc
+===
+
+Arithmetic
+==========
+
+<C-a> / <C-x> - perform addition / subtraction on the next number on the line
+the count is 22
+{number}<C-a> - add {number} to the next number
