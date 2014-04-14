@@ -43,7 +43,11 @@ X  - Delete character before cursor (s.a. hx)
 Motions
 =======
 
-G  - to end of file
+ge    - go backwards to end of previous word
+gE    - go backwards to the end of previous WORD
+
+{N}gg - to line {N}; to line 1 if {N} is not specified
+{N}G  - to line {N}; to end of file if {N} is not specified
 
 Operators (Operator + Motion = Action)
 ======================================
@@ -102,6 +106,15 @@ B, {, } - a {} block (e.g. { int i; for (i=0; i<2; ) }
 "       - double quote string (e.g. "this is a 'double-quote' string")
 '       - single quote sting
 `       - back-quote string
+
+Visual Selections
+=================
+
+v     - select by character
+V     - select by line
+<C-v> - select by block
+
+gv    - reselect previous visual area
 
 
 Window Management
