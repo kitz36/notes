@@ -40,10 +40,20 @@ O  - Open a new line above the current line (s.a. kA<CR> or ko)
 x  - Delete character under cursor
 X  - Delete character before cursor (s.a. hx) 
 
+
+Insert Mode Operations
+======================
+
 <C-h> - Delete back one character (s.a. backspace)
 <C-w> - Delete back one word
 <C-u> - Delete back to start of line
-note: these are usable in insert mode
+
+<C-r>{reg} - paste text from register {reg} (default register:0)
+
+<C-v>{code}  - insert character corresponding to three digit decimal {code}
+<C-v>u{code} - insert character corresponding to four digit hex {code}
+<C-v>{nondigit} - insert literal {nondigit} (e.g. <tab>)
+
 
 Motions
 =======
