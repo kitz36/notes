@@ -156,11 +156,17 @@ B, {, } - a {} block (e.g. { int i; for (i=0; i<2; ) }
 Visual Selections
 =================
 
-v     - select by character
-V     - select by line
-<C-v> - select by block
+v       - select by character
+V       - select by line
+<C-v>   - select by block
 
-gv    - reselect previous visual area
+gv      - reselect previous visual area
+
+o       - go to other end of highlighted area
+
+c       - delete selection and start insert
+r{char} - replace selection with {char}
+> / <   - increase/decrease indent
 
 
 Window Management
