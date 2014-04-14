@@ -46,6 +46,11 @@ Motions
 ge    - go backwards to end of previous word
 gE    - go backwards to the end of previous WORD
 
+[[ / ]] - go to start of previous/next section (function block)
+[] / ][ - go to end of previous/next section (function block)
+
+[/ / ]/ - go to start/end of a C comment
+
 {N}gg - to line {N}; to line 1 if {N} is not specified
 {N}G  - to line {N}; to end of file if {N} is not specified
 
@@ -73,6 +78,19 @@ g* / g#         - like '*' or '#' but finds matches that aren't whole words
 gd / gD         - goto local/global declaration of variable under the cursor
 1gd / 1gD       - like 'gd' or 'gD' but ignore matches inside a {} block that
                   ends before the cursor position
+
+Lookup
+======
+
+[d / [D  - list first/all defines found in current and included files matching
+           the word under the cursor
+[i / [I  - list first/all lines found in current and included files matching
+           the word under the cursor
+
+[<C-D> - jump to first #define found in current and included files matching
+         word under the cursor
+[<C-I> - jump to first line in current and included files matching word under
+         the cursor
 
 Repeating
 =========
