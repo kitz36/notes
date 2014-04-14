@@ -43,15 +43,28 @@ X  - Delete character before cursor (s.a. hx)
 <C-h> - Delete back one character (s.a. backspace)
 <C-w> - Delete back one word
 <C-u> - Delete back to start of line
+note: these are usable in insert mode
 
 Motions
 =======
 
-ge    - go backwards to end of previous word
-gE    - go backwards to the end of previous WORD
+note: a word consists of a sequence of letters, digits, and underscores,
+      or a sequence of other non-blank characters seperated with whitespace.
+      this can be changed with the 'iskeyword' option.
+      iskeyword default = "!-~,^*,^|,^",192-255"
+
+note: a WORD consists only of a sequence of non-blank characters seperated
+      with whitespace.
+
+w / b   - go forward/backward a word
+W / B   - go forward/backward a WORD
+e / E   - go forward to the end of word/WORD
+ge / gE - go backwards to the end of previous word/WORD
 
 [[ / ]] - go to start of previous/next section (function block)
 [] / ][ - go to end of previous/next section (function block)
+
+note: section here is defined by '{' and '}' in the first column
 
 [/ / ]/ - go to start/end of a C comment
 
@@ -71,8 +84,9 @@ note: operator + operator = action applied to current line
 Searching
 =========
 
-f{char} - Find next instance of {char} in current line
-  ; - repeat / , - repeat in opposite direction
+f{char} / F{char} - Find next/previous instance of {char} in current line
+t{char} / T{char} - Till next/previous instance of {char} in current line
+; / ,             - repeat last f/F or t/T in same/opposite direction
 
 /{pattern} / ?{pattern} - search forward/backwards for {pattern}
 n               - repeat last '/' or '?' search
