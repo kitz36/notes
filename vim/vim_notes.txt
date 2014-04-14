@@ -158,9 +158,10 @@ note: <C-w><C-w> is the same as <C-w>w, etc
 <C-w>c - close the active window  (s.a. :cl[ose])
 <C-w>o - keep only the active window, closing all others  (s.a. :on[ly])
 
-<C-w>= - equalize width and height of all windows
-<C-w>_ - maximize height of the active window
-<C-w>| - maximize width of the active window
+<C-w>+ / <C-w>- - increase/decrease current window height
+<C-w>> / <C-w>< - increase/decrease current window width
+<C-w>=          - equalize width and height of all windows
+<C-w>_ / <C-w>| - maximize height/width of the active window
 [N]<C-w>_ - set the active window height to [N] rows
 [N]>C-w>| - set the active window width to [N] rows
 
