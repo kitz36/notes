@@ -60,7 +60,15 @@ Searching
 
 f{char} - Find next instance of {char} in current line
   ; - repeat / , - repeat in opposite direction
-* / # - search forward/backwards for the word under the cursor
+
+/{pattern} / ?{pattern} - search forward/backwards for {pattern}
+n               - repeat last '/' or '?' search
+N               - repeat last '/' or '?' search in opposite direction
+* / #           - search forward/backwards for word under the cursor
+g* / g#         - like '*' or '#' but finds matches that aren't whole words
+gd / gD         - goto local/global declaration of variable under the cursor
+1gd / 1gD       - like 'gd' or 'gD' but ignore matches inside a {} block that
+                  ends before the cursor position
 
 Repeating
 =========
