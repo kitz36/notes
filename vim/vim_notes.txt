@@ -40,6 +40,10 @@ O  - Open a new line above the current line (s.a. kA<CR> or ko)
 x  - Delete character under cursor
 X  - Delete character before cursor (s.a. hx) 
 
+<C-h> - Delete back one character (s.a. backspace)
+<C-w> - Delete back one word
+<C-u> - Delete back to start of line
+
 Motions
 =======
 
